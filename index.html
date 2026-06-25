@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrowVibe — Напоминания об уборке</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="phone">
+    <div class="header">
+      <button class="back-btn" aria-label="Назад">
+        <i class="ti ti-arrow-left"></i>
+      </button>
+      <span class="header-title">Напоминания</span>
+    </div>
+
+    <main id="main">
+      <!-- Блок 1: главный тумблер -->
+      <div class="section" style="margin-top: 16px;">
+        <div class="row">
+          <div class="row-text">
+            <div class="row-label">Напоминать об уборке</div>
+            <div class="row-sub">Push-уведомление по расписанию</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="master" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div id="settings-body">
+        <!-- Блок 2: дни недели -->
+        <p class="section-title">Дни недели</p>
+        <div class="section">
+          <div class="days-row">
+            <div class="days-grid" id="days-grid">
+              <button class="day-btn" data-day="Пн">Пн</button>
+              <button class="day-btn" data-day="Вт">Вт</button>
+              <button class="day-btn" data-day="Ср">Ср</button>
+              <button class="day-btn" data-day="Чт">Чт</button>
+              <button class="day-btn" data-day="Пт">Пт</button>
+              <button class="day-btn active" data-day="Сб">Сб</button>
+              <button class="day-btn" data-day="Вс">Вс</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Блок 3: время -->
+        <p class="section-title">Время</p>
+        <div class="section">
+          <div class="time-row" id="time-row" role="button" tabindex="0" aria-label="Выбрать время">
+            <div class="time-left">
+              <i class="ti ti-clock time-icon" aria-hidden="true"></i>
+              <span class="time-label">Время уведомления</span>
+            </div>
+            <span class="time-value" id="time-val">11:00</span>
+          </div>
+          <div class="time-picker-wrap" id="time-picker" hidden>
+            <input type="time" id="time-input" value="11:00" />
+          </div>
+        </div>
+
+        <!-- Блок 4: повторные напоминания -->
+        <p class="section-title">Если уборка пропущена</p>
+        <div class="section">
+          <div class="row">
+            <div class="row-text">
+              <div class="row-label">Повторное напоминание</div>
+              <div class="row-sub">Через 3 дня после пропуска</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="repeat-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="row">
+            <div class="row-text">
+              <div class="row-label">Звук уведомления</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="sound-toggle" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Блок 5: по комнатам -->
+        <p class="section-title">По комнатам</p>
+        <div class="section">
+          <div class="row">
+            <div class="row-text">
+              <div class="row-label">Ванная и туалет чаще</div>
+              <div class="row-sub">Раз в 3 дня — отдельное расписание</div>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="bathroom-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Кнопка сохранить -->
+        <div class="save-wrap">
+          <button class="save-btn" id="save-btn">Сохранить</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">Настройки сохранены</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
